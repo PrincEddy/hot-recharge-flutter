@@ -109,7 +109,7 @@ class Api {
       String url = _ROOT_ENDPOINT + _API_VERSION + _WALLET_BALANCE;
 
       http.Response response = await http.get(
-        url,
+        Uri.parse(url),
         headers: this._headers,
       );
 
@@ -159,7 +159,7 @@ class Api {
       String url = _ROOT_ENDPOINT + _API_VERSION + _ZESA_BALANCE;
 
       http.Response response = await http.get(
-        url,
+        Uri.parse(url),
         headers: this._headers,
       );
 
@@ -210,7 +210,7 @@ class Api {
           _ROOT_ENDPOINT + _API_VERSION + _QUERY_TRANSACTION + agentReference;
 
       http.Response response = await http.get(
-        url,
+        Uri.parse(url),
         headers: this._headers,
       );
 
@@ -285,7 +285,7 @@ class Api {
       _headers.remove('Content-type');
 
       http.Response response = await http.post(
-        url,
+        Uri.parse(url),
         body: payload,
         headers: this._headers,
       );
@@ -351,7 +351,7 @@ class Api {
       _headers.remove('Content-type');
 
       http.Response response = await http.post(
-        url,
+        Uri.parse(url),
         body: {
           'MeterNumber': meterNumber,
         },
@@ -428,7 +428,7 @@ class Api {
       _headers.remove('Content-type');
 
       http.Response response = await http.post(
-        url,
+        Uri.parse(url),
         body: payload,
         headers: this._headers,
       );
@@ -492,7 +492,7 @@ class Api {
       _headers.remove('Content-type');
 
       http.Response response = await http.post(
-        url,
+        Uri.parse(url),
         body: {"RechargeId": rechargeId.toString()},
         headers: this._headers,
       );
@@ -551,7 +551,7 @@ class Api {
     try {
       String url =
           _ROOT_ENDPOINT + _API_VERSION + _END_USER_BALANCE + mobileNumber;
-      response = await http.get(url, headers: this._headers);
+      response = await http.get(Uri.parse(url), headers: this._headers);
 
       var data = jsonDecode(response.body) as Map;
 
